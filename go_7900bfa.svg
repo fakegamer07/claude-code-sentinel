@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 56" width="260" height="56">
+  <defs>
+    <linearGradient id="btnBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="hsl(228, 18%, 19%)"/>
+      <stop offset="55%" stop-color="hsl(228, 19%, 12%)"/>
+      <stop offset="100%" stop-color="hsl(228, 14%, 7%)"/>
+    </linearGradient>
+    <linearGradient id="btnAccentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="hsl(143, 58%, 51%)"/>
+      <stop offset="100%" stop-color="hsl(203, 77%, 51%)"/>
+    </linearGradient>
+    <linearGradient id="btnGlossGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="btnGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="hsl(160, 80%, 55%)" stop-opacity="0.19"/>
+      <stop offset="100%" stop-color="hsl(160, 80%, 55%)" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="btnShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="btnIconGlow">
+      <feGaussianBlur stdDeviation="0.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="titleClip"><rect x="58" y="28" width="158" height="20"/></clipPath>
+    <clipPath id="subtitleClip"><rect x="58" y="10" width="158" height="16"/></clipPath>
+  </defs>
+
+  <!-- Body -->
+  <g filter="url(#btnShadow)">
+    <rect x="1.5" y="1.5" width="257" height="53" rx="12"
+          fill="url(#btnBgGrad)" stroke="hsl(228, 12%, 29%)" stroke-width="1"/>
+  </g>
+  <!-- Ambient accent glow -->
+  <ellipse cx="30" cy="28" rx="46" ry="26" fill="url(#btnGlow)"/>
+  <!-- Top gloss -->
+  <rect x="2" y="2" width="256" height="26" rx="12" fill="url(#btnGlossGrad)"/>
+
+  <!-- Left accent stripe -->
+  <rect x="1.5" y="1.5" width="3" height="53" rx="1.5" fill="url(#btnAccentGrad)"/>
+
+  <!-- Download icon -->
+  <g transform="translate(18, 16)" filter="url(#btnIconGlow)">
+    <line x1="12" y1="0" x2="12" y2="14" stroke="url(#btnAccentGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <polyline points="6,9 12,15 18,9" fill="none" stroke="url(#btnAccentGrad)"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="2,20 2,23 22,23 22,20" fill="none" stroke="url(#btnAccentGrad)"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Divider -->
+  <line x1="48" y1="14" x2="48" y2="42" stroke="hsl(228, 12%, 30%)" stroke-width="1"/>
+
+  <!-- Project name (small, top) -->
+  <g clip-path="url(#subtitleClip)">
+    <text id="projectName" x="58" y="23"
+          font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+          font-size="10" font-weight="500"
+          fill="#8b949e"
+          letter-spacing="1.2">claude-code-sentinel</text>
+  </g>
+
+  <!-- Action label -->
+  <g clip-path="url(#titleClip)">
+    <text x="58" y="43"
+          font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+          font-size="16" font-weight="700"
+          fill="#e6edf3"
+          letter-spacing="-0.2">Download Latest</text>
+  </g>
+
+  <!-- Small pulsing dot -->
+  <circle cx="244" cy="12" r="2.5" fill="url(#btnAccentGrad)">
+    <animate attributeName="opacity" values="1;0.35;1" dur="1.4s" repeatCount="indefinite"/>
+  </circle>
+</svg>
